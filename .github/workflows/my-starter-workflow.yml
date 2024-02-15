@@ -14,3 +14,14 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy to your project.
+  call-reusable-workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Call reusable workflow
+        uses: ./.github/workflows/reusable-workflow.yml
+        with:
+          node: 14
+  
